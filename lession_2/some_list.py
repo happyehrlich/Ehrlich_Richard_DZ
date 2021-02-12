@@ -28,5 +28,8 @@ for i in range(0, len(some_list)):
         qwe = index_list[0]
         print(type(qwe))
         print(type(temporary_list))
-        temporary_list.insert(int(qwe), 0)
+        temporary_list.insert(int(qwe), '0')
         print('проверочный вывод, temporary_list: ', temporary_list)
+        char_for_join = ''
+        output1 = char_for_join.join(temporary_list)
+        print(output1)
