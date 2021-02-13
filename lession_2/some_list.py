@@ -11,14 +11,10 @@ def get_modify_list():
         temporary_list = list(temp_item)
         count = 0
         index_list = []
-        general_index_list = []
-        for index, value in enumerate(temporary_list):
+        for index_variable, value in enumerate(temporary_list):
             if value.isdigit():
                 count += 1
-                index_list = str(index)
-                general_index_list = index
-            else:
-                general_index_list = index
+                index_list = str(index_variable)
 
         if count == 1:
             qwe = index_list[0]
@@ -49,3 +45,4 @@ for index in range(len(some_list)):
 
 # найти индексы кавычек и склеить по срезу с числом
 # потом пробелом склеить остальную строку
+print(some_list.index('"'))
