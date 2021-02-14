@@ -40,7 +40,7 @@ def inserting_a_quotation_mark_character():
 
 
 # функция get_any_symbol получает первую пару ковычек с начала списка
-def get_any_symbol(any_list, any_symbol):
+def get_any_character(any_list, any_symbol):
     symbol_list = []
     counter = 0
     for i in range(len(any_list)):
@@ -59,7 +59,7 @@ inserting_a_quotation_mark_character()  # Вызов модификации - в
 print("Далее обрамляем каждое число в ковычки: ")  # показываем изменённый список
 
 while some_list.count('"') > 0:
-    pair_symbol = get_any_symbol(some_list, '"')
+    pair_symbol = get_any_character(some_list, '"')
     list_reload = []
     for i in range(pair_symbol[0], pair_symbol[-1] + 1):
         list_reload += some_list.pop(pair_symbol[0])
