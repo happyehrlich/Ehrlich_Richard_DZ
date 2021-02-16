@@ -57,7 +57,7 @@ print(ready_price_list)
 print(id(ready_price_list))
 
 print('#################################################')
-#
+#stag B пока не решил
 # print('\nберём объект из первого условия и сортируем по второму условию:')
 # get_random_number = get_random_number[0]
 # print(get_random_number)
