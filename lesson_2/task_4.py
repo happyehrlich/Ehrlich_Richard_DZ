@@ -24,7 +24,7 @@ def checking_for_a_number(user_any_list):
 
 
 checking_for_a_number(list_of_employees)
-#дочистить от списков
+# дочистить от списков
 for i in range(len(list_of_employees)):
 	user_list = list_of_employees[i].split()
 	print(f'Привет, {user_list[-1].title()}')
