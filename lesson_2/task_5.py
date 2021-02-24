@@ -1,4 +1,5 @@
 from random import random
+from copy import copy
 
 
 # получаем прайс лист
@@ -9,60 +10,30 @@ def get_random_list():
 	return price_list_random
 
 
-#################################
+def adding_a_zero(any_list):
+	ending_num = ''
+	for value in any_list:
+		num = str(int(float(value) * 100))
+		number = f"{int(value)} руб {str(list(num)[-2]) + str(list(num)[-1])} коп, "
+		ending_num += number
+	return ending_num
 
 
-def get_price_list(price_list):
-	# делаем массив многомерным, не пересоздавая объекта
-	for i in range(len(price_list)):
-		temp_var = str(price_list[i])
-		temp_var = temp_var.split('.')
-		price_list[i] = temp_var
+first_list = get_random_list()
+print('Получаем новый список', '\nid:', id(first_list), first_list)
 
-	# дополняем одноразрядные цифры нулём, формируем правильный список цен
-	index: int
-	for index in range(len(price_list)):
-		some_numbers = price_list[index]
-		for value in range(1, len(some_numbers), 2):
-			item = some_numbers[value]
-			if len(item) < 2:
-				item = '0' + item
-				some_numbers[value] = item
-		some_numbers = f'{some_numbers[0]} руб {some_numbers[1]} коп'
-		price_list[index] = some_numbers
+price_list = adding_a_zero(first_list)
+print('Выводим цены согласно условию "А" :\n', price_list)
 
-	# получаем cтроку из списка не пересоздавая объекта
-	while True:
-		if len(price_list) > 1:
-			temp_var_for_string = f'{price_list.pop(0)}, {price_list.pop(0)}'
-			price_list.insert(0, temp_var_for_string)
-		else:
-			break
-	return price_list
+first_list.sort()
+price_list = adding_a_zero(first_list)
+print('Выводим цены согласно условию "B" :\n', price_list)
 
+new_list = copy(first_list)
+new_list.reverse()
+price_list = adding_a_zero(new_list)
+print('Выводим цены согласно условию "C" :\n', price_list)
 
-#################################################
-print('получаем новый список и объект:')
-get_random_number: list
-get_random_number = get_random_list()
-print(get_random_number)
-print(id(get_random_number))
-
-print('\nполучаем изменённый список цен по первому условию, но не изменяя объект:')
-ready_price_list = get_price_list(get_random_number)
-print(ready_price_list)
-print(id(ready_price_list))
-
-print('#################################################')
-#
-# print('\nберём объект из первого условия и сортируем по второму условию:')
-# get_random_number = get_random_number[0]
-# print(get_random_number)
-# print(id(get_random_number))
-
-# print('\nполучаем изменённый список цен по второму условию, не изменяя объект:')
-# ready_price_list = get_price_list(get_random_number)
-# print(ready_price_list)
-# print(id(ready_price_list))
-
-print('#################################################')
+price_list = adding_a_zero(first_list[-5:])
+sorted(price_list)
+print('Выводим цены согласно условию "D" :\n', price_list)

@@ -11,8 +11,8 @@ def modifying_the_list(any_list):
 				count += 1
 				index_container = index_variable
 		if count == 1:
-			some_list[i] = temporary_str[:index_container] + '0' + temporary_str[index_container] + temporary_str[index_container + 1:]
-
+			any_list[i] = temporary_str[:index_container] + '0' + temporary_str[index_container] + temporary_str[index_container + 1:]
+	return any_list
 
 def insert_quotation_marks(total_number):
 	next_index = 0
@@ -53,11 +53,14 @@ def get_last_string(number_of_cycles):
 
 print('Программе дан объект в виде списка:')
 print(some_list, 'id:', id(some_list))
-modifying_the_list(some_list)
+
+some_list = modifying_the_list(some_list)
 print('Модифицируем список не создавая новый объект и не создавая новый список:')
 print(some_list, 'id:', id(some_list))
+
 total_numbers = insert_quotation_marks(0)
 print(some_list, 'id:', id(some_list))
+
 print('Получаем строку соблюдая условия:')
 main_string = get_last_string(total_numbers)
 print(main_string)
