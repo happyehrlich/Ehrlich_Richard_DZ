@@ -2,8 +2,9 @@ def thesaurus(*args):
 	user_dict = {}
 	for value in args:
 		first_sign = value[0]
+		print(type(first_sign))
 		if first_sign in user_dict.keys():
-			break
+			continue
 		next_list = list(filter(lambda item: item.startswith(first_sign), args))
 		user_dict[first_sign] = next_list
 	return user_dict
