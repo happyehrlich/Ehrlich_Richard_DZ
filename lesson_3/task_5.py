@@ -15,9 +15,11 @@ def get_list_value(*args):
 
 
 def get_jokes(number_of_jokes, *args, flag=False):
-	"""  """
+
+	""" generates a set number of jokes and depending on the flag, makes them unique """
+
 	if flag and number_of_jokes > len(args[0]):
-		print('Вы ввели не допустимое значение!')
+		print('Вы ввели недопустимое значение!')
 	else:
 		result_list = []
 		for i in range(number_of_jokes):
@@ -39,9 +41,10 @@ def get_jokes(number_of_jokes, *args, flag=False):
 		return result_list
 
 
-print(f"Условие: если в программе используються, только уникальнвые слова,\nто количество выдаваемых шуток неможет привышать длинну входного списка!: {len(nouns)}")
+print(f"Условие: если в программе используются, только уникальнвые слова,\nто количество выдаваемых шуток не может превышать длину входного списка!: {len(nouns)}")
 unique_words = input('Хотите ли вы видеть только уникальные слова? (Да/Нет): ')
 quantity_of_jokes = input('Введите количество шуток, которое вы хотите увидеть: ')
+
 if unique_words.lower() == 'да' and quantity_of_jokes.isdigit():
 	result = get_jokes(int(quantity_of_jokes), nouns, adverbs, adjectives, flag=True)
 	if result:
@@ -51,4 +54,4 @@ elif unique_words.lower() == 'нет' and quantity_of_jokes.isdigit():
 	print(result)
 else:
 	print(unique_words)
-	print('Не корректный ответ')
+	print('Некорректный ответ')
